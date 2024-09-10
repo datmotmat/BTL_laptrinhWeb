@@ -1,11 +1,14 @@
 <?php
 session_start();
-
 // Khởi tạo giỏ hàng nếu chưa tồn tại
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
-
+if(isset($_POST['buy_now'])){
+    if (isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
+    }
+}
 // Lấy dữ liệu sản phẩm từ POST request
 $product_name = $_POST['product_name'];
 $product_price = $_POST['product_price'];
@@ -33,6 +36,6 @@ if (!$product_exists) {
 }
 
 // Chuyển hướng về trang giỏ hàng
-header('Location: cart.php');
+header('Location: index.php?atc=cart');
 exit;
 ?>

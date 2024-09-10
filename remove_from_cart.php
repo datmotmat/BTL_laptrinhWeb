@@ -18,6 +18,6 @@ if (isset($_GET['name']) && !empty($_GET['name'])) {
 }
 
 // Quay lại trang giỏ hàng sau khi xóa sản phẩm
-header("Location: cart.php");
+header("Location: index.php?atc=cart");
 exit();
 ?>
